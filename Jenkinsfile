@@ -14,12 +14,14 @@ node {
 
         app = docker.build("czerniawkomichal/servertwo")
     }
-     stage('Test image) {
-
+     stage('Test image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
 	app.inside{
 	  sh 'echo "Test passed"'
 	}	
-	}
+    }
+	
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
